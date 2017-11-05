@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TESTING</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="lib/vue-form-wizard.min.css" rel="stylesheet" />
+    <link href="css/producer.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="app">
+        <div>
+            <form-wizard @on-complete="onComplete" :start-index="cookieRes">
+                <tab-content title="Personal details">
+                    1. 정보입력 화면, 쿠키가 있을때만 나타남
+                </tab-content>
+                <tab-content title="Additional Info1">
+                    2. 추가정보 입력1
+                </tab-content>
+                <tab-content title="Additional Info2">
+                    3. 추가정보 입력2
+                </tab-content>
+                <tab-content title="Last step">
+                    4. 마지막 정보입력 Last Step !
+                </tab-content>
+            </form-wizard>
+        </div>
+    </div>
+    <div id="QR">
+        <div id="wrapper">
+            <qrcode :val="val" :size="size" :bg-color="bgColor" :fg-color="fgColor" level="L"></qrcode>
+        </div>
+    </div>
+
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/vue-form-wizard.js"></script>
+    <script src="lib/vue-qrcode.min.js"></script>
+    <script src="js/producer_main.js"></script>
+    <script>
+        initialize();
+    </script>
+</body>
+
+</html>
