@@ -1,10 +1,10 @@
 //initial function
 function initialize() {
     //load_From_Cookie();
-    make_Forms();
+    makeForms(true);
 }
 //Load data from cookie
-function load_From_Cookie() {
+function loadFromCookie() {
     $.ajax({
         type: 'GET',
         url: '../index.html',
@@ -16,12 +16,8 @@ function load_From_Cookie() {
     });
 }
 //Make Wizard form
-function make_Forms() {
-    cookieVal = true
-    if (cookieVal)
-        index = 1;
-    else
-        index = 0;
+function makeForms(cookieVal) {
+    index = cookieval? 1 : 0;
     Vue.use(VueFormWizard)
     new Vue({
         el: '#app',
@@ -31,15 +27,19 @@ function make_Forms() {
         methods: {
             onComplete: function () {
                 alert('done');
-                QRCode();
+                getHashValue();
             },
         }
     })
 }
+function getHashValue(){
+    value = '123456'
+    QRCode(value);
+}
 //Make QR Code Form
-function QRCode() {
+function QRCode(hashKey) {
     link = "https://61.80.79.85?val=";
-    hashVal = '123456'
+    hashKey = 'hashKey'
     console.log(link+hashVal);
     Vue.use(VueQr)
     new Vue({
@@ -49,7 +49,7 @@ function QRCode() {
         },
         data () {
           return {
-            val: link+hashVal,
+            val: link+hashKey,
             bgColor: "#FFFFFF",
             fgColor: "#000000",
             size: 200
