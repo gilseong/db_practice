@@ -23,8 +23,7 @@
     }
     //4. 내용을 저장한다
     foreach ($HASHVAL as $val)
-        if(!mysqli_query($conn,"INSERT INTO `PRODUCTS` VALUES(".$val.",".$VAL1.",".$VAL2.",".$VAL3.")")) 
-            die();
+        mysqli_query($conn,"INSERT INTO `PRODUCTS` VALUES(".$val.",".$VAL1.",".$VAL2.",".$VAL3.")");
     mysqli_close($conn);
 
     //5. 2번의 Hash값을 json으로 묶어서 Return한다

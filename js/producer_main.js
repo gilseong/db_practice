@@ -256,7 +256,6 @@ function QRCode(hashVal) {
     '</qrcode>' +
     '</div>'+
     '</div>';
-    parent.insertAfter(node, parent.firstChild);
     //append VUE
     Vue.use(VueQr)
     new Vue({
