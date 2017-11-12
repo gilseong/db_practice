@@ -240,23 +240,22 @@ function makeForms(name, company) {
 function CreateQRCode(data){
     jsondata = JSON.parse(data);
     for(dat in jsondata)
-        QRCode(dat);
+        QRCode(jsondata[dat]);
 }
 //Make QR Code Form
 function QRCode(hashVal) {
     if(!hashVal){ alert('ERROR'); return;}
     link = "https://61.80.79.85/index.php?val=";
     //append HTML
-    var parent = document.getElementsByClassName('QRBASE');
-    var node = document.createElement("div");
+    var parent = document.getElementById('QRBASE');
+    var node = parent.appendChild(document.createElement("div"));
     node.innerHTML = 
-    '<div id="QR_'+hashval+'">' +
+    '<div id="QR_'+hashVal+'">' +
     '<div id="wrapper">' +
     '<qrcode :val="val" :size="size" :bg-color="bgColor" :fg-color="fgColor" level="L">'+
     '</qrcode>' +
     '</div>'+
     '</div>';
-    parent.appendChild(node);
     parent.insertAfter(node, parent.firstChild);
     //append VUE
     Vue.use(VueQr)
