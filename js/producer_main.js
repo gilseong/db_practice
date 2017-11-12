@@ -53,7 +53,7 @@ function getRequest(url, success, error, data) {
     }
     req.open("POST", url, true);
     req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    req.send(encodeURI('val1=' + data[0] +'&val2='+ data[1] + '&val3=' + data[2] + '&count=' + data[3]));
+    req.send('val1=' + data[0] +'&val2='+ data[1] + '&val3=' + data[2] + '&count=' + data[3]);
     return req;
 }
 //Make Wizard form
@@ -246,7 +246,6 @@ function CreateQRCode(data){
 function QRCode(hashVal) {
     if(!hashVal){ alert('ERROR'); return;}
     link = "https://61.80.79.85/index.php?val=";
-
     //append HTML
     var parent = document.getElementsByClassName('QRBASE');
     var node = document.createElement("div");

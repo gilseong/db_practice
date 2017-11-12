@@ -2,11 +2,11 @@
     //MYSQL 서버에 Param들을 저장하고, 해당 값으로 만들어낸 Hash값을 Return하는 php
 
     //1. 값을 가져온다
-    $VAL1 = $_GET['val1'];
-    $VAL2 = $_GET['val2'];
-    $VAL3 = $_GET['val3'];
+    $VAL1 = $_POST['val1'];
+    $VAL2 = $_POST['val2'];
+    $VAL3 = $_POST['val3'];
 
-    $COUNT = $_GET['count']; //QR코드 생성해야 할 갯수
+    $COUNT = $_POST['count']; //QR코드 생성해야 할 갯수
     //2. MYSQL 서버와 연동을한다 
     $conn = mysqli_connect("localhost", "TESTER", "123456", "study");
     if($conn->error)
@@ -21,10 +21,10 @@
         else
             array_push($HASHVAL,$TEMPHASH);
     }
-    
     //4. 내용을 저장한다
-    if(!mysqli_query($conn,"INSERT INTO `PRODUCTS` VALUES(".$HASHVAL.",".$VAL1.",".$VAL2.",".$VAL3.")")) 
-        die();
+    foreach ($HASHVAL as $val)
+        if(!mysqli_query($conn,"INSERT INTO `PRODUCTS` VALUES(".$val.",".$VAL1.",".$VAL2.",".$VAL3.")")) 
+            die();
     mysqli_close($conn);
 
     //5. 2번의 Hash값을 json으로 묶어서 Return한다
