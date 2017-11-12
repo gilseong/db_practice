@@ -53,7 +53,7 @@ function getRequest(url, success, error, data) {
     }
     req.open("POST", url, true);
     req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    req.send(encodeURI('VAL1=' + data[0] +'&VAL2='+ data[1] + '&VAL3=' + data[2] + '&COUNT=' + data[3]));
+    req.send(encodeURI('val1=' + data[0] +'&val2='+ data[1] + '&val3=' + data[2] + '&count=' + data[3]));
     return req;
 }
 //Make Wizard form
@@ -236,19 +236,33 @@ function makeForms(name, company) {
         }
     })
 }
+//QR loop
 function CreateQRCode(data){
-    console.alert(data)
-    QRCode(data);
+    jsondata = JSON.parse(data);
+    for(dat in jsondata)
+        QRCode(dat);
 }
 //Make QR Code Form
 function QRCode(hashVal) {
-
     if(!hashVal){ alert('ERROR'); return;}
     link = "https://61.80.79.85/index.php?val=";
-    console.log(link + hashVal);
+
+    //append HTML
+    var parent = document.getElementsByClassName('QRBASE');
+    var node = document.createElement("div");
+    node.innerHTML = 
+    '<div id="QR_'+hashval+'">' +
+    '<div id="wrapper">' +
+    '<qrcode :val="val" :size="size" :bg-color="bgColor" :fg-color="fgColor" level="L">'+
+    '</qrcode>' +
+    '</div>'+
+    '</div>';
+    parent.appendChild(node);
+    parent.insertAfter(node, parent.firstChild);
+    //append VUE
     Vue.use(VueQr)
     new Vue({
-        el: '#QR',
+        el: '#QR_'+hashVal,
         components: {
             qrcode: VueQr
         },
