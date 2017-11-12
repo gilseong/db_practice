@@ -239,6 +239,7 @@ function makeForms(name, company) {
 //QR loop
 function CreateQRCode(data){
     jsondata = JSON.parse(data);
+    document.getElementById('QRBASE').innerHTML="";
     for(dat in jsondata)
         QRCode(jsondata[dat]);
 }
