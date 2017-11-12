@@ -246,7 +246,7 @@ function CreateQRCode(data){
 //Make QR Code Form
 function QRCode(hashVal) {
     if(!hashVal){ alert('ERROR'); return;}
-    link = "https://61.80.79.85/index.php?val=";
+    link = "http://61.80.79.85/index.php?val=";
     //append HTML
     var parent = document.getElementById('QRBASE');
     var node = parent.appendChild(document.createElement("div"));
