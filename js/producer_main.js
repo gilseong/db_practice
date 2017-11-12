@@ -31,21 +31,20 @@ function getCookie(cname) {
     }
     return "";
 }
-function getHashValue(data){
-    return getRequest(
+function getHashValue(data, output, error){
+    getRequest(
         '../php/saveInfo.php', // URL for the PHP file
-         drawOutput,  // handle successful request
-         drawError,    // handle error
+            output,  // handle successful request
+            error,    // handle error
          data //data
     );
-    return false;
 }
 function getRequest(url, success, error, data) {
     var req = false;
     req = new XMLHttpRequest();
     if (!req) return false;
-    if (typeof success != 'function') success = function () {return false;};
-    if (typeof error!= 'function') error = function () {return false;};
+    if (typeof success != 'function') success = function () {};
+    if (typeof error!= 'function') error = function () {};
     req.onreadystatechange = function(){
         if(req.readyState == 4) {
             return req.status === 200 ? 
@@ -232,7 +231,7 @@ function makeForms(name, company) {
             },
             onComplete: function () {
                 saveToCookie(this.finalModel.본인이름, this.finalModel.회사이름);
-                CreateQRCode(getHashValue([this.finalModel.제품명,this.finalModel.등급, this.finalModel.지방률, this.finalModel.갯수]));
+                getHashValue([this.finalModel.제품명,this.finalModel.등급, this.finalModel.지방률, this.finalModel.갯수],CreateQRCode,null);
             }
         }
     })
@@ -245,7 +244,7 @@ function CreateQRCode(data){
 function QRCode(hashVal) {
 
     if(!hashVal){ alert('ERROR'); return;}
-    link = "https://61.80.79.85?val=";
+    link = "https://61.80.79.85/index.php?val=";
     console.log(link + hashVal);
     Vue.use(VueQr)
     new Vue({

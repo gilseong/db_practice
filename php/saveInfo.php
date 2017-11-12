@@ -2,11 +2,11 @@
     //MYSQL 서버에 Param들을 저장하고, 해당 값으로 만들어낸 Hash값을 Return하는 php
 
     //1. 값을 가져온다
-    $VAL1 = $_GET('VAL1');
-    $VAL2 = $_GET('VAL2');
-    $VAL3 = $_GET('VAL3');
+    $VAL1 = $_GET['VAL1'];
+    $VAL2 = $_GET['VAL2'];
+    $VAL3 = $_GET['VAL3'];
 
-    $COUNT = $_GET('COUNT'); //QR코드 생성해야 할 갯수
+    $COUNT = $_GET['COUNT']; //QR코드 생성해야 할 갯수
 
     //2. MYSQL 서버와 연동을한다 
     $conn = mysqli_connect(localhost, "TESTER", "123456", "study");
