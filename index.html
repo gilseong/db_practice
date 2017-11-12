@@ -24,13 +24,16 @@
         <div id="app">
             <div>
                 <form-wizard shape="square" color="#3498db" @on-complete="onComplete" :start-index="cookieRes">
-                    <tab-content title="Personal details" icon="ti-user" :before-change="()=>validateStep('step1')">
+                    <tab-content title="개인정보" icon="ti-user" :before-change="()=>validateStep('step1')">
                         <step1 ref="step1" @on-validate="mergePartialModels"></step1>
                     </tab-content>
-                    <tab-content title="Additional Info" icon="ti-settings" :before-change="()=>validateStep('step2')">
+                    <tab-content title="제품 정보" icon="ti-settings" :before-change="()=>validateStep('step2')">
                         <step2 ref="step2" @on-validate="mergePartialModels"></step2>
                     </tab-content>
-                    <tab-content title="Last step" icon="ti-check">
+                    <tab-content title="추가 설정" icon="ti-settings" :before-change="()=>validateStep('step3')">
+                        <step3 ref="step3" @on-validate="mergePartialModels"></step3>
+                    </tab-content>
+                    <tab-content title="최종 확인" icon="ti-check">
                         최종 결과 양식:
                         <pre>{{finalModel}}</pre>
                     </tab-content>
