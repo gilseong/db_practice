@@ -33,7 +33,7 @@ function getCookie(cname) {
 }
 function getHashValue(data, output, error){
     getRequest(
-        '../php/saveInfo.php', // URL for the PHP file
+        '../php/saveSellerInfo.php', // URL for the PHP file
             output,  // handle successful request
             error,    // handle error
          data //data
