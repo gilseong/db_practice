@@ -61,7 +61,7 @@ function loadDistributorBase(){
         type: 'POST',
         dataType: 'json',
         data: {"val1": KEY},
-        url: "../php/producer_info.php",
+        url: "../php/distrib_seller_info.php",
         success: function(data){
             if(data != 'empty')
             loadDistributorTable(data);
@@ -70,7 +70,7 @@ function loadDistributorBase(){
 }
 function loadDistributorTable(data){
     $.ajax({
-        url:"../html/producer.html",
+        url:"../html/distrib_seller.html",
         context: document.body, 
         success: function(response){
             $(".main").html(response);

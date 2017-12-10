@@ -46,6 +46,7 @@
 }
     mysqli_close($CONN);
 ?>
+<script src="lib/jquery-3.2.1.min.js" charset="utf-8" ></script>
 <script src="js/distrib_seller.js"></script>
 <script src="js/buyer.js"></script>
 <script src="index.js"></script>

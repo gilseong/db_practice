@@ -10,7 +10,11 @@
 
     
     //2. 해당 Product ID에 해당하는 값들을 Fetch한다. DISTRIB_LIST에서!
-    $query = mysqli_query($CONN, "SELECT * FROM DISTRIB_LIST LEFT JOIN DISTRIBUTORS ON DISTRIB_LIST.DISTRIB_ID = DISTRIBUTORS.DISTRIB_ID AND DISTRIB_LIST.PRODUCT_ID = '".$PRODUCT_ID."'");
+    $query = mysqli_query($CONN, 
+    "SELECT * FROM DISTRIB_LIST 
+    LEFT JOIN DISTRIBUTORS 
+    ON DISTRIB_LIST.DISTRIB_ID = DISTRIBUTORS.DISTRIB_ID 
+    WHERE DISTRIB_LIST.PRODUCT_ID = '".$PRODUCT_ID."'");
     $ROWS = array();
     while($r = mysqli_fetch_assoc($query)) {
         $ROWS[] = $r;
