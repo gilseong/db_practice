@@ -10,10 +10,8 @@
 
 
     //2. 값을 가져온다
-    $PRODUCT_ID = mysqli_real_escape_string($CONN, $_POST['val1']); //물건 ID(HASHVAL)
-    $DISTRIB_ID = mysqli_real_escape_string($CONN, $_POST['val2']); //유저 ID
-    
-    
+    $PRODUCT_ID = mysqli_real_escape_string($CONN, $_POST['PRODUCT_ID']); //물건 ID(HASHVAL)
+    $DISTRIB_ID = mysqli_real_escape_string($CONN, $_POST['USER_ID']); //유저 ID
     
     //3. INSERT FAIL시 FAIL, 성공시 SUCCESS
     $query = mysqli_query(

@@ -27,7 +27,7 @@
     foreach ($PRODUCT_ID as $ID)
         mysqli_query(
             $CONN,"INSERT INTO `PRODUCTS`(PRODUCT_ID, PRODUCT_NAME, MILK_TYPE, FAT_RATE, PRODUCT_SINCE)
-            VALUES('".$ID."','".$PRODUCT_NAME."','".$MILK_TYPE."','".$FAT_RATE."','".date('Y-m-d H:i:s', strtotime()).")");
+            VALUES('".$ID."','".$PRODUCT_NAME."','".$MILK_TYPE."','".$FAT_RATE."','".date('Y-m-d H:i:s')."')");
     mysqli_close($CONN);
 
     //5. 2번의 Hash값을 json으로 묶어서 Return한다
