@@ -1,9 +1,9 @@
 <?php
-    $ID = mysqli_real_escape_string($_POST['id']);
+    $CONN = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
 
-    $conn = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
+    $ID = mysqli_real_escape_string($CONN, $_POST['id']);
     $query = mysqli_query(
-        $conn, 
+        $CONN, 
         "SELECT `DISTRIB_ID`
          FROM `DISTRIBUTORS` 
          WHERE `DISTRIB_ID` = '".$ID

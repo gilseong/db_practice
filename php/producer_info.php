@@ -2,10 +2,10 @@
     // FETCH ONLY
     // 생산자측 정보 겟!
 
-    //1. 값을 가져온다
-    $PRODUCT_ID = mysqli_real_escape_string($_POST['val1']);
-
     $CONN = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
+    //1. 값을 가져온다
+    $PRODUCT_ID = mysqli_real_escape_string($CONN,$_POST['val1']);
+
     if($CONN->error)
         die();
     

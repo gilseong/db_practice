@@ -1,14 +1,16 @@
 <?php
     //MYSQL 서버에 Param들을 저장하고, 해당 값으로 만들어낸 Hash값을 Return하는 php
 
-    //1. 값을 가져온다
-    $PRODUCT_NAME = mysqli_real_escape_string($_POST['val1']);
-    $MILK_TYPE = mysqli_real_escape_string($_POST['val2']);
-    $FAT_RATE = mysqli_real_escape_string($_POST['val3']);
-
-    $COUNT = mysqli_real_escape_string($_POST['count']); //QR코드 생성해야 할 갯수
-    //2. MYSQL 서버와 연동을한다 
+    //1. MYSQL 서버와 연동을한다 
     $CONN = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
+
+    //2. 값을 가져온다
+    $PRODUCT_NAME = mysqli_real_escape_string($CONN, $_POST['val1']);
+    $MILK_TYPE = mysqli_real_escape_string($CONN, $_POST['val2']);
+    $FAT_RATE = mysqli_real_escape_string($CONN, $_POST['val3']);
+
+    $COUNT = mysqli_real_escape_string($CONN, $_POST['count']); //QR코드 생성해야 할 갯수
+    
     if($CONN->error)
         die();
     
