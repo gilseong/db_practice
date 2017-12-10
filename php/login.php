@@ -1,5 +1,5 @@
 <?php
-    $ID = mysql_real_escape_string($_POST['id']);
+    $ID = mysqli_real_escape_string($_POST['id']);
 
     $conn = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
     $query = mysqli_query(

@@ -3,8 +3,8 @@
     // 결과물은 Success / Fail로만
 
     //1. 값을 가져온다
-    $PRODUCT_ID = mysql_real_escape_string($_POST['val1']); //물건 ID(HASHVAL)
-    $DISTRIB_ID = mysql_real_escape_string($_POST['val2']); //유저 ID
+    $PRODUCT_ID = mysqli_real_escape_string($_POST['val1']); //물건 ID(HASHVAL)
+    $DISTRIB_ID = mysqli_real_escape_string($_POST['val2']); //유저 ID
     
     //2. 커넥션 ERROR시 FAIL
     $CONN = mysqli_connect("localhost", "TESTER", "123456", "STUDY");

@@ -1,6 +1,6 @@
 <?php
-    $NAME = mysql_real_escape_string($_POST['name']);
-    $JOP = mysql_real_escape_string($_POST['jop']);
+    $NAME = mysqli_real_escape_string($_POST['name']);
+    $JOP = mysqli_real_escape_string($_POST['jop']);
     
     //Raw JOP String을 분류
     if($JOP = 'u') $DB_JOP = 'DISTRIBUTOR'; //유통자

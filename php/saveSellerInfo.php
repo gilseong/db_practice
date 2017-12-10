@@ -2,11 +2,11 @@
     //MYSQL 서버에 Param들을 저장하고, 해당 값으로 만들어낸 Hash값을 Return하는 php
 
     //1. 값을 가져온다
-    $PRODUCT_NAME = mysql_real_escape_string($_POST['val1']);
-    $MILK_TYPE = mysql_real_escape_string($_POST['val2']);
-    $FAT_RATE = mysql_real_escape_string($_POST['val3']);
+    $PRODUCT_NAME = mysqli_real_escape_string($_POST['val1']);
+    $MILK_TYPE = mysqli_real_escape_string($_POST['val2']);
+    $FAT_RATE = mysqli_real_escape_string($_POST['val3']);
 
-    $COUNT = $_POST['count']; //QR코드 생성해야 할 갯수
+    $COUNT = mysqli_real_escape_string($_POST['count']); //QR코드 생성해야 할 갯수
     //2. MYSQL 서버와 연동을한다 
     $CONN = mysqli_connect("localhost", "TESTER", "123456", "STUDY");
     if($CONN->error)
@@ -25,7 +25,7 @@
     foreach ($PRODUCT_ID as $ID)
         mysqli_query(
             $CONN,"INSERT INTO `PRODUCTS`(PRODUCT_ID, PRODUCT_NAME, MILK_TYPE, FAT_RATE, PRODUCT_SINCE)
-            VALUES('".$ID."','".$PRODUCT_NAME."','".$MILK_TYPE."','".$FAT_RATE."','".date('Y-m-d H:i:s').")");
+            VALUES('".$ID."','".$PRODUCT_NAME."','".$MILK_TYPE."','".$FAT_RATE."','".date('Y-m-d H:i:s', strtotime()).")");
     mysqli_close($CONN);
 
     //5. 2번의 Hash값을 json으로 묶어서 Return한다

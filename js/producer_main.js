@@ -44,7 +44,7 @@ function getRequest(url, success, error, data) {
     req = new XMLHttpRequest();
     if (!req) return false;
     if (typeof success != 'function') success = function () {};
-    if (typeof error!= 'function') error = function () {};
+    if (typeof error!= 'function') error = function () {console.log(req)};
     req.onreadystatechange = function(){
         if(req.readyState == 4) {
             return req.status === 200 ? 
