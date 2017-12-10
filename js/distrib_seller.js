@@ -2,7 +2,7 @@
 function init_distrib_seller(PRODUCT_ID, USER_ID){
     $.ajax({
         type: 'POST',
-        dataType: 'json',
+        dataType: 'text',
         data: {"PRODUCT_ID":  PRODUCT_ID, "USER_ID":  USER_ID,},
         url: "../php/distrib_seller_insert.php",
         success: function(result){

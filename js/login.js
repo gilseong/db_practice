@@ -8,7 +8,7 @@ function login(){
         url: "../php/login.php",
         success: function(res){
             if(res === 'exist')
-                window.location.href = '../main.html';
+                alert('등록 완료! 바코드를 다시 찍어주세요!');
             else if(res == 'empty')
                 alert('해당하는 아이디(PIN)번호가 존재하지 않습니다');
             else

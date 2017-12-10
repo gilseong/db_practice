@@ -9,7 +9,7 @@
     $PRODUCT_ID = mysqli_real_escape_string($CONN,$_POST['val1']);
 
     //2. 해당 Product ID에 해당하는 값들을 Fetch한다. DISTRIB_LIST에서!
-    $query = mysqli_query($conn, "SELECT * FROM PRODUCTS WHERE PRODUCTS.PRODUCT_ID = '".$PRODUCT_ID."';");
+    $query = mysqli_query($CONN, "SELECT * FROM `PRODUCTS` WHERE `PRODUCT_ID` = '".$PRODUCT_ID."'");
     $ROWS = array();
     while($r = mysqli_fetch_assoc($query)) {
         $ROWS[] = $r;

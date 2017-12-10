@@ -1,11 +1,12 @@
-var KEY = HashVal;
+var KEY;
 function init_buyer(HashVal){
-    $('HTML').empty();
+    KEY = HashVal;
+    $('body').empty();
     $.ajax({
         url:"../html/buyer.html",
         context: document.body, 
         success: function(response){
-            $("HTML").html(response);
+            $("body").html(response);
         }
     });
 }
@@ -45,6 +46,7 @@ function loadProducerTableInfo(data){
     $.each(data, function() {
         $("#tableinit").append(
         '<tr class= "'+this.PRODUCT_ID+'" role="row">'+
+        '<td>'+ this.PRODUCT_ID+ '</td>'+
         '<td>'+ this.PRODUCT_NAME+ '</td>'+
         '<td>'+this.MILK_TYPE+'</td>'+
         '<td>'+this.FAT_RATE+'</td>'+
@@ -81,6 +83,7 @@ function loadDistributorTableInfo(data){
     $.each(data, function() {
         $("#tableinit").append(
         '<tr class= "'+this.DISTRIB_ID+'" role="row">'+
+        '<td>'+ this.DISTRIB_ID+ '</td>'+
         '<td>'+ this.NAME+ '</td>'+
         '<td>'+this.JOB+'</td>'+
         '</tr>');

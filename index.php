@@ -25,20 +25,25 @@
     ");
     if(mysqli_num_rows($query) !== 0){ //if not false
         $STATUS = 'BUYER';
-        exit();
-    }
+    }else{
     // 2. 소비자가 아니면 쿠키를 찾는다
     //쿠키가 없을시 STATUS를 NO_COOKIE로 Set
     if(!isset($USER_ID)){
         $STATUS = 'NO_COOKIE';
-        exit();
     }
+    else{
     //쿠키가 있는데 ID가 DB에 없을시 NO_ID로 Set.(웬만해서는 해당사항 없음) 있을시 SUCCESS로 Set
-    $USER_STATUS = mysqli_query($CONN,"SELECT ".$USER_ID." FROM `DISTRIBUTORS`");
-    if(!$USER_STATUS) //없을경우
+    $USER_STATUS = mysqli_query($CONN,
+        "SELECT `DISTRIB_ID`
+        FROM `DISTRIBUTORS` 
+        WHERE `DISTRIB_ID` = '".$USER_ID."'"
+     );
+    if(mysqli_num_rows($USER_STATUS)) //없을경우
         $STATUS = 'NO_ID';
     else
         $STATUS = 'SUCCESS';
+    }
+}
     mysqli_close($CONN);
 ?>
 <script src="js/distrib_seller.js"></script>

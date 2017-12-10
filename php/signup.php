@@ -22,8 +22,8 @@
     //없을경우 Insert
     mysqli_query(
             $CONN,
-            "INSERT INTO `DISTRIBUTORS`(`DISTRIB_ID`, `TYPE`)
-                VALUES('".substr(md5($NAME.$DB_JOP), 0, 6)."','".$DB_JOP.")"
+            "INSERT INTO `DISTRIBUTORS`(DISTRIB_ID, NAME, JOB, DISTRIB_TYPE)
+                VALUES('".substr(md5($NAME.$DB_JOP), 0, 6)."','".$NAME."','".$JOP."','".$DB_JOP."')"
     );
     setcookie('USER_ID', substr(md5($NAME.$DB_JOP), 0, 6), time() + (86400 * 30), "/"); //30 DAYS
     print substr(md5($NAME.$DB_JOP), 0, 6);

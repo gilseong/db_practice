@@ -15,11 +15,11 @@
     
     //3. INSERT FAIL시 FAIL, 성공시 SUCCESS
     $query = mysqli_query(
-            $CONN,"INSERT INTO `DISTRIB_LIST`(PRODUCT_ID, DISTRIB_ID) VALUES('".$PRODUCT_ID."','".$DISTRIB_ID.")"
+            $CONN,"INSERT INTO `DISTRIB_LIST`(PRODUCT_ID, DISTRIB_ID) VALUES('".$PRODUCT_ID."','".$DISTRIB_ID."')"
     );
-    mysqli_close($CONN);
     if($query)
         print('SUCCESS');
     else 
         print('FAIL');
+    mysqli_close($CONN);
 ?>
