@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Login </title>
+    <link rel="stylesheet" href="../lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div class="layer" style="width: 450px; height: 290px;">
+        <div class="text-center">
+            <div class="text-center-font">
+                <h1>System</h1>
+            </div>
+
+            <div class="login-content">
+                <div class="input">
+                    <div class='login-box'>
+                        <input type="text" id="lgin_id" maxlength="20" placeholder="아이디(PIN)번호를 입력해주세요!" autofocus="" style="height: 40px; width: 260px;">
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="로그인" tabindex="12" onclick="login()" class="page-scroll btn btn-cl"> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="회원가입" tabindex="15" class="page-scroll btn btn-cl" onclick="window.location='./signup.html';">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery.min.js"></script>
+    <script src='../js/login.js'></script>
+</body>
+
+</html>
